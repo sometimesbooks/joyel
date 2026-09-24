@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조이엘 (Joyel) | 에세이 작가 & 강연자 포트폴리오</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Noto Serif KR & Noto Sans KR) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        warmBg: '#FDFBF7',
+                        sandCard: '#F5ECE3',
+                        slateAccent: '#3A4750',
+                        accentCoral: '#D97757',
+                        accentCoralDark: '#BF5E3E',
+                        softGray: '#6B7280'
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif KR"', 'serif'],
+                        sans: ['"Noto Sans KR"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D3748;
+        }
+        .font-serif-kr {
+            font-family: 'Noto Serif KR', serif;
+        }
+        /* Custom modal backdrop animation */
+        .modal-fade-enter {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        .modal-fade-enter-active {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 300ms, transform 300ms;
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800 flex flex-col min-h-screen">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 bg-[#FDFBF7]/90 backdrop-blur-md border-b border-stone-200/60 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#" class="group flex items-center space-x-2">
+                <span class="font-serif-kr text-2xl font-bold tracking-tight text-stone-800 group-hover:text-accentCoral transition-colors">조이엘</span>
+                <span class="text-xs uppercase tracking-widest text-stone-400 font-light border-l border-stone-300 pl-2">Joyel</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-stone-700">
+                <a href="#about" class="hover:text-accentCoral transition-colors">작가 소개</a>
+                <a href="#lectures" class="hover:text-accentCoral transition-colors font-semibold text-accentCoral">강연 안내 & 신청</a>
+                <a href="#books" class="hover:text-accentCoral transition-colors">저서</a>
+                <a href="#newsletter" class="hover:text-accentCoral transition-colors">뉴스레터</a>
+                <a href="#social" class="hover:text-accentCoral transition-colors">소통 & SNS</a>
+            </nav>
+
+            <!-- Quick Contact CTA (Desktop) -->
+            <button onclick="openModal()" class="hidden md:inline-flex items-center space-x-2 bg-stone-800 hover:bg-accentCoral text-white text-xs px-4 py-2.5 rounded-full font-medium transition-all duration-300 shadow-sm hover:shadow-md">
+                <i class="fa-regular fa-paper-plane"></i>
+                <span>강연 문의하기</span>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-stone-700 focus:outline-none p-2" aria-label="메뉴 열기">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#FDFBF7] border-b border-stone-200 px-6 pt-2 pb-6 space-y-4">
+            <a href="#about" class="block py-2 text-stone-700 font-medium hover:text-accentCoral border-b border-stone-100">작가 소개</a>
+            <a href="#lectures" class="block py-2 text-accentCoral font-semibold border-b border-stone-100">강연 안내 & 신청</a>
+            <a href="#books" class="block py-2 text-stone-700 font-medium hover:text-accentCoral border-b border-stone-100">저서</a>
+            <a href="#newsletter" class="block py-2 text-stone-700 font-medium hover:text-accentCoral border-b border-stone-100">뉴스레터</a>
+            <a href="#social" class="block py-2 text-stone-700 font-medium hover:text-accentCoral border-b border-stone-100">소통 & SNS</a>
+            <button onclick="openModal()" class="w-full mt-2 bg-accentCoral text-white py-3 rounded-xl font-medium text-sm shadow">
+                강연 문의하기
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero / Author Profile Section -->
+    <section id="about" class="py-16 md:py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Profile Image / Graphic -->
+            <div class="md:col-span-5 relative">
+                <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sandCard shadow-xl relative z-10 border border-stone-200/50">
+                    <!-- Profile Placeholder / Image -->
+                    <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" 
+                         alt="조이엘 작가 서재 및 책상" 
+                         class="w-full h-full object-cover filter contrast-[0.95]"
+                         onerror="this.src='https://placehold.co/600x750/F5ECE3/3A4750?text=Joyel+Author'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <p class="font-serif-kr text-xl font-semibold">조이엘 (Joyel)</p>
+                        <p class="text-xs text-stone-200 tracking-wider">Writer & Lecturer</p>
+                    </div>
+                </div>
+                <!-- Decorative background frame -->
+                <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-stone-300 rounded-2xl -z-0 hidden sm:block"></div>
+            </div>
+
+            <!-- Author Bio Content -->
+            <div class="md:col-span-7 space-y-6">
+                <div class="inline-block px-3 py-1 bg-stone-200/60 text-stone-700 rounded-full text-xs font-semibold tracking-wide">
+                    다정하고 깊은 다독임의 문장들
+                </div>
+                <h1 class="font-serif-kr text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-stone-900">
+                    글과 이야기로 <br class="hidden sm:inline">
+                    삶의 작은 온기를 전합니다.
+                </h1>
+                <p class="text-stone-600 leading-relaxed text-base sm:text-lg font-light">
+                    안녕하세요, 에세이 작가이자 강연자로 활동하고 있는 <strong class="font-semibold text-stone-800">조이엘</strong>입니다. 
+                    일상 속 지나치기 쉬운 감정과 삶의 질문들을 부드러운 언어로 담아내며, 
+                    도서관, 학교, 문화공간에서 독자 여러분과 함께 따뜻한 다정한 대화를 나누고 있습니다.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-3 text-xs text-stone-500 font-medium">
+                    <span class="bg-stone-100 px-3 py-1.5 rounded-md border border-stone-200"><i class="fa-solid fa-book-open mr-1.5 text-accentCoral"></i>에세이 저술</span>
+                    <span class="bg-stone-100 px-3 py-1.5 rounded-md border border-stone-200"><i class="fa-solid fa-chalkboard-user mr-1.5 text-accentCoral"></i>도서관·학교 강연</span>
+                    <span class="bg-stone-100 px-3 py-1.5 rounded-md border border-stone-200"><i class="fa-solid fa-feather mr-1.5 text-accentCoral"></i>글쓰기 워크숍</span>
+                </div>
+
+                <!-- Call to Action Buttons -->
+                <div class="pt-6 flex flex-col sm:flex-row gap-4">
+                    <button onclick="openModal()" class="inline-flex justify-center items-center space-x-2 bg-accentCoral hover:bg-accentCoralDark text-white px-7 py-3.5 rounded-xl font-medium shadow-md hover:shadow-lg transition-all duration-300 group">
+                        <span>강연 신청 및 문의</span>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <a href="#books" class="inline-flex justify-center items-center space-x-2 bg-sandCard hover:bg-stone-200 text-stone-800 px-7 py-3.5 rounded-xl font-medium transition-all duration-300 border border-stone-300/60">
+                        <span>저서 둘러보기</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lecture Focus Section (강연 안내 및 신청 - Main Highlight) -->
+    <section id="lectures" class="py-20 bg-stone-100/70 border-y border-stone-200/80">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-accentCoral text-xs font-bold uppercase tracking-widest">Lectures & Workshops</span>
+                <h2 class="font-serif-kr text-3xl sm:text-4xl font-bold text-stone-900">함께 나누는 깊은 이야기, 강연 프로그램</h2>
+                <p class="text-stone-600 text-sm sm:text-base">
+                    공공도서관, 초·중·고등학교, 지자체, 기업 및 문화센터 등 독자와 호흡하는 다양한 공간에서 강연과 워크숍을 진행합니다.
+                </p>
+            </div>
+
+            <!-- Lecture Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Program 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-50 text-accentCoral rounded-xl flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <span class="text-xs text-stone-400 font-semibold uppercase">Topic 01</span>
+                        <h3 class="font-serif-kr text-xl font-bold text-stone-800 mt-1 mb-3">나를 돌보는 다정한 글쓰기</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            일상의 사소한 순간을 포착하여 나만의 에세이로 완성하는 방법. 글을 쓰며 내면의 마음을 마주하고 위로를 얻는 기획 강연 및 실습.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 text-xs text-stone-500">
+                        <p><strong>대상:</strong> 성인, 시니어, 일반 시민</p>
+                        <p class="mt-1"><strong>시간:</strong> 90분 ~ 120분 (단발성/특강)</p>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-50 text-accentCoral rounded-xl flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <span class="text-xs text-stone-400 font-semibold uppercase">Topic 02</span>
+                        <h3 class="font-serif-kr text-xl font-bold text-stone-800 mt-1 mb-3">책 출간과 작가로서의 삶</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            한 권의 책이 나오기까지의 기획부터 출판 과정 이야기. 작가가 되기를 꿈꾸는 예비 작가들과 나누는 진솔하고 현실적인 출판 토크.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 text-xs text-stone-500">
+                        <p><strong>대상:</strong> 청소년, 예비 작가, 도서관 이용자</p>
+                        <p class="mt-1"><strong>시간:</strong> 90분 내외 (북토크 형태 가능)</p>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-50 text-accentCoral rounded-xl flex items-center justify-center text-xl mb-6">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <span class="text-xs text-stone-400 font-semibold uppercase">Topic 03</span>
+                        <h3 class="font-serif-kr text-xl font-bold text-stone-800 mt-1 mb-3">청소년 진로 & 진심 어린 문장들</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            꿈과 진로를 고민하는 중·고등학생들을 위한 맞춤 강연. 내 안의 가능성을 발견하고 질문을 던지는 따뜻한 소통의 시간.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-stone-100 text-xs text-stone-500">
+                        <p><strong>대상:</strong> 중·고등학교 학생, 청소년</p>
+                        <p class="mt-1"><strong>시간:</strong> 1~2차시 맞춤 구성</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Banner Box for Direct Inquiry -->
+            <div class="mt-12 bg-stone-800 text-white rounded-2xl p-8 sm:p-10 flex flex-col md:flex-row justify-between items-center shadow-lg">
+                <div class="space-y-2 text-center md:text-left mb-6 md:mb-0">
+                    <span class="text-accentCoral font-semibold text-xs tracking-wider">LIBRARIAN & ORGANIZER</span>
+                    <h3 class="font-serif-kr text-2xl font-bold">기관 맞춤형 강연 및 북토크 요청하기</h3>
+                    <p class="text-stone-300 text-sm font-light">
+                        일정, 대상, 예산에 맞춰 프로그램 주제 및 차시 조율이 가능합니다. 언제든 편하게 문의해주세요.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <button onclick="openModal()" class="bg-accentCoral hover:bg-accentCoralDark text-white px-6 py-3.5 rounded-xl font-medium text-sm transition-colors text-center whitespace-nowrap shadow">
+                        <i class="fa-regular fa-envelope mr-2"></i>온라인 강연 신청
+                    </button>
+                    <a href="mailto:joyel_writer@example.com?subject=[강연문의] 조이엘 작가님 강연 문의드립니다" class="bg-stone-700 hover:bg-stone-600 text-stone-100 px-6 py-3.5 rounded-xl font-medium text-sm transition-colors text-center whitespace-nowrap border border-stone-600">
+                        <i class="fa-solid fa-at mr-2"></i>이메일 직접 보내기
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Books Portfolio Section -->
+    <section id="books" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+            <span class="text-accentCoral text-xs font-bold uppercase tracking-widest">Publications</span>
+            <h2 class="font-serif-kr text-3xl sm:text-4xl font-bold text-stone-900">조이엘 작가의 저서</h2>
+            <p class="text-stone-600 text-sm sm:text-base">
+                독자들의 마음에 조용한 울림을 남긴 출간작을 소개합니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+            <!-- Book Item 1 -->
+            <div class="bg-sandCard/50 border border-stone-200/80 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start transition-all hover:shadow-md">
+                <div class="w-40 sm:w-48 aspect-[3/4] bg-stone-300 rounded-xl overflow-hidden shadow-md flex-shrink-0 relative">
+                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80" 
+                         alt="바람이 머무는 문장들 표지" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/400x533/EADBC8/3A4750?text=Book+Cover+1'">
+                </div>
+                <div class="flex-1 space-y-3 text-center sm:text-left">
+                    <span class="bg-amber-100 text-amber-800 text-[11px] font-bold px-2.5 py-1 rounded">2024년 신간</span>
+                    <h3 class="font-serif-kr text-2xl font-bold text-stone-800">바람이 머무는 문장들</h3>
+                    <p class="text-xs text-stone-500">출판사: 마음의숲 | 출간일: 2024. 03</p>
+                    <p class="text-stone-600 text-sm leading-relaxed font-light pt-2">
+                        지친 하루의 끝에서 나를 온전히 안아주는 45편의 다정한 에세이. 거창한 위로 대신 가만히 곁을 지켜주는 언어의 온기를 전달합니다.
+                    </p>
+                    <div class="pt-3 flex flex-wrap gap-2 justify-center sm:justify-start">
+                        <a href="https://www.kyobobook.co.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-stone-700 hover:text-accentCoral underline underline-offset-4">
+                            교보문고 구매하기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                        <span class="text-stone-300">|</span>
+                        <a href="https://www.aladin.co.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-stone-700 hover:text-accentCoral underline underline-offset-4">
+                            알라딘 구매하기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Item 2 -->
+            <div class="bg-sandCard/50 border border-stone-200/80 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start transition-all hover:shadow-md">
+                <div class="w-40 sm:w-48 aspect-[3/4] bg-stone-300 rounded-xl overflow-hidden shadow-md flex-shrink-0 relative">
+                    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80" 
+                         alt="오늘도 글을 씁니다 표지" 
+                         class="w-full h-full object-cover"
+                         onerror="this.src='https://placehold.co/400x533/EADBC8/3A4750?text=Book+Cover+2'">
+                </div>
+                <div class="flex-1 space-y-3 text-center sm:text-left">
+                    <span class="bg-stone-200 text-stone-700 text-[11px] font-bold px-2.5 py-1 rounded">베스트셀러</span>
+                    <h3 class="font-serif-kr text-2xl font-bold text-stone-800">오늘도 글을 씁니다</h3>
+                    <p class="text-xs text-stone-500">출판사: 소소북스 | 출간일: 2022. 10</p>
+                    <p class="text-stone-600 text-sm leading-relaxed font-light pt-2">
+                        쓰는 삶이 건네는 뜻밖의 기적들. 무심코 지나치던 일상을 기록하고 의미를 부여하는 작가의 시선과 구체적인 기록 노하우.
+                    </p>
+                    <div class="pt-3 flex flex-wrap gap-2 justify-center sm:justify-start">
+                        <a href="https://www.kyobobook.co.kr" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-stone-700 hover:text-accentCoral underline underline-offset-4">
+                            교보문고 구매하기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                        <span class="text-stone-300">|</span>
+                        <a href="https://www.yes24.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-stone-700 hover:text-accentCoral underline underline-offset-4">
+                            YES24 구매하기 <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Newsletter & Social Media Section -->
+    <section id="newsletter" class="py-20 bg-stone-900 text-stone-100">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Newsletter Subscription Form -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-accentCoral text-xs font-bold uppercase tracking-widest">Joyel's Letter</span>
+                    <h2 class="font-serif-kr text-3xl sm:text-4xl font-bold">월간 조이엘: 계절의 문장들</h2>
+                    <p class="text-stone-300 text-sm sm:text-base font-light leading-relaxed">
+                        한 달에 두 번, 책에 미처 담지 못한 비하인드 이야기와 미공개 원고, 
+                        그리고 마음에 머물렀던 구절들을 이메일로 보내드립니다.
+                    </p>
+                    
+                    <!-- Form -->
+                    <form onsubmit="handleSubscribe(event)" class="pt-2 flex flex-col sm:flex-row gap-3">
+                        <input type="email" id="subscriber-email" required placeholder="이메일 주소를 입력해 주세요" 
+                               class="bg-stone-800 border border-stone-700 text-white placeholder-stone-400 px-4 py-3.5 rounded-xl flex-1 focus:outline-none focus:border-accentCoral transition-colors text-sm">
+                        <button type="submit" class="bg-accentCoral hover:bg-accentCoralDark text-white font-medium px-6 py-3.5 rounded-xl transition-colors text-sm whitespace-nowrap shadow">
+                            뉴스레터 구독하기
+                        </button>
+                    </form>
+                    <p id="subscribe-message" class="text-xs text-emerald-400 hidden"><i class="fa-solid fa-check mr-1"></i> 구독 신청이 완료되었습니다! 격주 목요일에 만나요.</p>
+                </div>
+
+                <!-- Social Media Channel Grid -->
+                <div id="social" class="lg:col-span-5 bg-stone-800/80 p-8 rounded-2xl border border-stone-700/60 space-y-6">
+                    <h3 class="font-serif-kr text-xl font-bold border-b border-stone-700 pb-4">일상 소통 채널 (SNS)</h3>
+                    <p class="text-xs text-stone-400 font-light">
+                        가장 빠르게 작가의 소식과 실시간 생각을 확인해 보세요.
+                    </p>
+
+                    <div class="space-y-3">
+                        <!-- Instagram Link -->
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
+                           class="flex items-center justify-between p-4 bg-stone-900/60 hover:bg-stone-700/60 rounded-xl transition-all border border-stone-700/40 group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white text-lg">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm group-hover:text-accentCoral transition-colors">Instagram</p>
+                                    <p class="text-xs text-stone-400">@joyel_writer (일상 & 강연 소식)</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-stone-500 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <!-- Threads Link -->
+                        <a href="https://threads.net" target="_blank" rel="noopener noreferrer" 
+                           class="flex items-center justify-between p-4 bg-stone-900/60 hover:bg-stone-700/60 rounded-xl transition-all border border-stone-700/40 group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-black flex items-center justify-center text-white text-lg border border-stone-600">
+                                    <i class="fa-brands fa-threads"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm group-hover:text-accentCoral transition-colors">Threads</p>
+                                    <p class="text-xs text-stone-400"> 짧은 문장과 생각 조각들</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-stone-500 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <!-- Brunch / Blog Link -->
+                        <a href="https://brunch.co.kr" target="_blank" rel="noopener noreferrer" 
+                           class="flex items-center justify-between p-4 bg-stone-900/60 hover:bg-stone-700/60 rounded-xl transition-all border border-stone-700/40 group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-700 flex items-center justify-center text-white text-lg">
+                                    <i class="fa-solid fa-pen"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm group-hover:text-accentCoral transition-colors">Brunch Story</p>
+                                    <p class="text-xs text-stone-400">긴 연재 글 읽기</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs text-stone-500 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-950 text-stone-500 py-10 px-6 mt-auto border-t border-stone-800 text-xs">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-serif-kr text-sm font-semibold text-stone-300">조이엘 (Joyel)</p>
+                <p class="mt-1">© 2026 Joyel Author. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#about" class="hover:text-stone-300 transition-colors">작가소개</a>
+                <a href="#lectures" class="hover:text-stone-300 transition-colors">강연신청</a>
+                <a href="#books" class="hover:text-stone-300 transition-colors">저서</a>
+                <button onclick="openModal()" class="hover:text-stone-300 transition-colors">문의하기</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lecture Request Modal Dialog -->
+    <div id="lecture-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-stone-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-stone-200">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="mb-6 space-y-1">
+                <span class="text-accentCoral font-semibold text-xs tracking-widest uppercase">Inquiry Form</span>
+                <h3 class="font-serif-kr text-2xl font-bold text-stone-900">조이엘 작가 강연 문의</h3>
+                <p class="text-xs text-stone-500">아래 내용을 작성해 주시면 24시간 이내에 확인 후 연락드리겠습니다.</p>
+            </div>
+
+            <!-- Form -->
+            <form onsubmit="handleLectureSubmit(event)" class="space-y-4 text-xs sm:text-sm">
+                <div>
+                    <label class="block text-stone-700 font-medium mb-1">신청 기관 / 단체명 <span class="text-rose-500">*</span></label>
+                    <input type="text" required placeholder="예: OO시립도서관, OO고등학교" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-accentCoral/50 focus:border-accentCoral outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-stone-700 font-medium mb-1">담당자 성함 <span class="text-rose-500">*</span></label>
+                        <input type="text" required placeholder="홍길동" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-accentCoral/50 focus:border-accentCoral outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-stone-700 font-medium mb-1">연락처 <span class="text-rose-500">*</span></label>
+                        <input type="tel" required placeholder="010-0000-0000" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-accentCoral/50 focus:border-accentCoral outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-stone-700 font-medium mb-1">이메일 주소 <span class="text-rose-500">*</span></label>
+                    <input type="email" required placeholder="example@library.go.kr" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-accentCoral/50 focus:border-accentCoral outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-stone-700 font-medium mb-1">희망 일정(월/일)</label>
+                        <input type="text" placeholder="예: 5월 중순 / 10월 12일" class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-accentCoral/50 focus:border-accentCoral outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-stone-700 font-medium mb-1">희망 주제</label>
+                        <select class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-accentCoral/50 focus:border-accentCoral outline-none text-stone-700">
+                            <option>선택해주세요</option>
+                            <option>나를 돌보는 다정한 글쓰기</option>
+                            <option>책 출간과 작가로서의 삶</option>
+                            <option>청소년 진로 & 글쓰기 특강</option>
+                            <option>기타 (상담 후 결정)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-stone-700 font-medium mb-1">기타 문의 내용 (대상, 예상 인원 등)</label>
+                    <textarea rows="3" placeholder="강연 대상 및 인원, 참고사항 등을 자유롭게 작성해주세요." class="w-full border border-stone-300 rounded-lg p-3 focus:ring-2 focus:ring-accentCoral/50 focus:border-accentCoral outline-none resize-none"></textarea>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-accentCoral hover:bg-accentCoralDark text-white font-medium py-3.5 rounded-xl transition-colors text-sm shadow">
+                        강연 문의 제출하기
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on clicking any link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal Open / Close Logic
+        const modal = document.getElementById('lecture-modal');
+
+        function openModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Lecture Inquiry Submission Handler
+        function handleLectureSubmit(event) {
+            event.preventDefault();
+            // User friendly notification instead of alert()
+            const btn = event.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> 전송 중...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> 성공적으로 제출되었습니다!';
+                btn.classList.remove('bg-accentCoral');
+                btn.classList.add('bg-emerald-600');
+                
+                setTimeout(() => {
+                    closeModal();
+                    event.target.reset();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    btn.classList.add('bg-accentCoral');
+                    btn.classList.remove('bg-emerald-600');
+                }, 1500);
+            }, 1000);
+        }
+
+        // Newsletter Subscription Handler
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const message = document.getElementById('subscribe-message');
+            const input = document.getElementById('subscriber-email');
+            
+            message.classList.remove('hidden');
+            input.value = '';
+            
+            setTimeout(() => {
+                message.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
