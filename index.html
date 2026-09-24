@@ -42,16 +42,6 @@
         .font-serif-kr {
             font-family: 'Noto Serif KR', serif;
         }
-        /* Custom modal backdrop animation */
-        .modal-fade-enter {
-            opacity: 0;
-            transform: scale(0.95);
-        }
-        .modal-fade-enter-active {
-            opacity: 1;
-            transform: scale(1);
-            transition: opacity 300ms, transform 300ms;
-        }
     </style>
 </head>
 <body class="antialiased text-gray-800 flex flex-col min-h-screen">
@@ -106,7 +96,6 @@
             <!-- Profile Image / Graphic -->
             <div class="md:col-span-5 relative">
                 <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-sandCard shadow-xl relative z-10 border border-stone-200/50">
-                    <!-- Profile Placeholder / Image -->
                     <img src="joyel2.jpg" 
                          alt="조이엘 작가 서재 및 책상" 
                          class="w-full h-full object-cover filter contrast-[0.95]"
@@ -117,7 +106,6 @@
                         <p class="text-xs text-stone-200 tracking-wider">Writer & Lecturer</p>
                     </div>
                 </div>
-                <!-- Decorative background frame -->
                 <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-stone-300 rounded-2xl -z-0 hidden sm:block"></div>
             </div>
 
@@ -127,13 +115,12 @@
                     다정하고 깊은 다독임의 문장들
                 </div>
                 <h1 class="font-serif-kr text-3xl sm:text-4xl lg:text-5xl font-bold text-stone-900 space-y-4">
-  <span class="block">글과 강연으로</span>
-  <span class="block">삶의 지혜를 나눕니다.</span>
-</h1>
+                    <span class="block">글과 강연으로</span>
+                    <span class="block">삶의 지혜를 나눕니다.</span>
+                </h1>
                 <p class="text-stone-600 leading-relaxed text-base sm:text-lg font-light">
                     안녕하세요, 서울대학교에서 인문학을 공부한 인문학 연구자이자 작가 <strong class="font-semibold text-stone-800">조이엘</strong>입니다. 
-                오랜 시간 책과 인문학을 탐구하고 교육 현장에서 다양한 아이들의 성장을 지켜보며, 삶과 배움의 본질을 꾸준히 질문해왔습니다. 철학·역사·문학을 넘나드는 폭넓은 인문학적 시선으로 평범한 일상 속에 숨어 있는 의미를 발견하고, 이를 쉽고 깊이 있는 언어로 풀어냅니다.
-
+                    오랜 시간 책과 인문학을 탐구하고 교육 현장에서 다양한 아이들의 성장을 지켜보며, 삶과 배움의 본질을 꾸준히 질문해왔습니다. 철학·역사·문학을 넘나드는 폭넓은 인문학적 시선으로 평범한 일상 속에 숨어 있는 의미를 발견하고, 이를 쉽고 깊이 있는 언어로 풀어냅니다.
                 </p>
                 <div class="pt-2 flex flex-wrap gap-3 text-xs text-stone-500 font-medium">
                     <span class="bg-stone-100 px-3 py-1.5 rounded-md border border-stone-200"><i class="fa-solid fa-book-open mr-1.5 text-accentCoral"></i>에세이 저술</span>
@@ -156,7 +143,7 @@
         </div>
     </section>
 
-    <!-- Lecture Focus Section (강연 안내 및 신청 - Main Highlight) -->
+    <!-- Lecture Focus Section (강연 안내 및 신청) -->
     <section id="lectures" class="py-20 bg-stone-100/70 border-y border-stone-200/80">
         <div class="max-w-6xl mx-auto px-6">
             
@@ -165,11 +152,11 @@
                 <span class="text-accentCoral text-xs font-bold uppercase tracking-widest">Lectures & Workshops</span>
                 <h2 class="font-serif-kr text-3xl sm:text-4xl font-bold text-stone-900">배움과 사유를 나누는 시간</h2>
                 <p class="text-stone-600 text-sm sm:text-base">
-                    공공도서관, 초·중·고등학교, 지자체, 기업 및 문화센터 등 <br> 독자와 호흡하는 다양한 공간에서 강연과 저자와의 만남을 진행합니다.
+                    공공도서관, 초·중·고등학교, 지자체, 기업 및 문화센터 등 <br class="hidden sm:inline"> 독자와 호흡하는 다양한 공간에서 강연과 저자와의 만남을 진행합니다.
                 </p>
             </div>
 
-            <!-- Lecture Cards Grid -->
+            <!-- Lecture Cards Grid (3 Columns) -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 
                 <!-- Program 1 -->
@@ -225,65 +212,66 @@
                         <p class="mt-1"><strong>시간:</strong> 1~2차시 맞춤 구성</p>
                     </div>
                 </div>
-<!-- 주요 강연 이력 (Lecture History) -->
-<div class="mt-16 bg-white p-8 sm:p-10 rounded-2xl border border-stone-200/80 shadow-sm max-w-4xl mx-auto">
-  <div class="flex items-center gap-3 mb-8 pb-4 border-b border-stone-100">
-    <span class="p-2 bg-amber-50 rounded-lg text-amber-800">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-      </svg>
-    </span>
-    <div>
-      <h3 class="font-serif-kr text-xl sm:text-2xl font-bold text-stone-900">주요 강연 & 출강 이력</h3>
-      <p class="text-sm text-stone-500 font-sans mt-0.5">도서관, 기업, 교육기관 등 다양한 곳에서 함께했습니다.</p>
-    </div>
-  </div>
 
-  <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
-    <!-- 이력 아이템 1 -->
-    <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-stone-50 transition-colors">
-      <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-800 rounded-md whitespace-nowrap mt-0.5">2026</span>
-      <div>
-        <h4 class="font-bold text-stone-800 text-base">공공도서관 저자 초청 강연</h4>
-        <p class="text-sm text-stone-600 mt-1">강남구립도서관 / 에세이 쓰기와 기록의 삶</p>
-      </div>
-    </div>
+            </div> <!-- 3열 그리드가 여기서 깔끔하게 닫힙니다 -->
 
-    <!-- 이력 아이템 2 -->
-    <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-stone-50 transition-colors">
-      <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-800 rounded-md whitespace-nowrap mt-0.5">2025</span>
-      <div>
-        <h4 class="font-bold text-stone-800 text-base">기업 임직원 인문학 워크숍</h4>
-        <p class="text-sm text-stone-600 mt-1">OO기업 / 일과 삶을 잇는 글쓰기 리더십</p>
-      </div>
-    </div>
+            <!-- 주요 강연 이력 (Lecture History - 넓은 카드로 정렬) -->
+            <div class="mt-12 bg-white p-8 sm:p-10 rounded-2xl border border-stone-200/80 shadow-sm max-w-4xl mx-auto">
+                <div class="flex items-center gap-3 mb-8 pb-4 border-b border-stone-100">
+                    <span class="p-2 bg-amber-50 rounded-lg text-amber-800">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3 class="font-serif-kr text-xl sm:text-2xl font-bold text-stone-900">주요 강연 & 출강 이력</h3>
+                        <p class="text-sm text-stone-500 font-sans mt-0.5">도서관, 기업, 교육기관 등 다양한 곳에서 함께했습니다.</p>
+                    </div>
+                </div>
 
-    <!-- 이력 아이템 3 -->
-    <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-stone-50 transition-colors">
-      <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-800 rounded-md whitespace-nowrap mt-0.5">2025</span>
-      <div>
-        <h4 class="font-bold text-stone-800 text-base">청소년·대학생 특강</h4>
-        <p class="text-sm text-stone-600 mt-1">OO대학교 / 나만의 시선으로 세상을 기록하는 법</p>
-      </div>
-    </div>
+                <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                    <!-- 이력 1 -->
+                    <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-stone-50 transition-colors">
+                        <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-800 rounded-md whitespace-nowrap mt-0.5">2026</span>
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-base">공공도서관 저자 초청 강연</h4>
+                            <p class="text-sm text-stone-600 mt-1">강남구립도서관 / 에세이 쓰기와 기록의 삶</p>
+                        </div>
+                    </div>
 
-    <!-- 이력 아이템 4 -->
-    <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-stone-50 transition-colors">
-      <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-800 rounded-md whitespace-nowrap mt-0.5">2024</span>
-      <div>
-        <h4 class="font-bold text-stone-800 text-base">북토크 & 작가와의 대화</h4>
-        <p class="text-sm text-stone-600 mt-1">독립서점 / 문장 속에서 찾아가는 나의 취향</p>
-      </div>
-    </div>
-  </div>
+                    <!-- 이력 2 -->
+                    <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-stone-50 transition-colors">
+                        <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-800 rounded-md whitespace-nowrap mt-0.5">2025</span>
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-base">기업 임직원 인문학 워크숍</h4>
+                            <p class="text-sm text-stone-600 mt-1">OO기업 / 일과 삶을 잇는 글쓰기 리더십</p>
+                        </div>
+                    </div>
 
-  <!-- 맞춤형 강연 안내 문구 -->
-  <div class="mt-8 pt-6 border-t border-stone-100 text-center">
-    <p class="text-sm text-stone-500">
-      💡 대상과 주제(도서관, 기업, 학교, 커뮤니티 등)에 맞추어 맞춤형 강연 프로그램 구성이 가능합니다.
-    </p>
-  </div>
-</div>
+                    <!-- 이력 3 -->
+                    <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-stone-50 transition-colors">
+                        <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-800 rounded-md whitespace-nowrap mt-0.5">2025</span>
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-base">청소년·대학생 특강</h4>
+                            <p class="text-sm text-stone-600 mt-1">OO대학교 / 나만의 시선으로 세상을 기록하는 법</p>
+                        </div>
+                    </div>
+
+                    <!-- 이력 4 -->
+                    <div class="flex items-start gap-4 p-3 rounded-xl hover:bg-stone-50 transition-colors">
+                        <span class="px-2.5 py-1 text-xs font-semibold bg-amber-100 text-amber-800 rounded-md whitespace-nowrap mt-0.5">2024</span>
+                        <div>
+                            <h4 class="font-bold text-stone-800 text-base">북토크 & 작가와의 대화</h4>
+                            <p class="text-sm text-stone-600 mt-1">독립서점 / 문장 속에서 찾아가는 나의 취향</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-stone-100 text-center">
+                    <p class="text-sm text-stone-500">
+                        💡 대상과 주제(도서관, 기업, 학교, 커뮤니티 등)에 맞추어 맞춤형 강연 프로그램 구성이 가능합니다.
+                    </p>
+                </div>
             </div>
 
             <!-- Banner Box for Direct Inquiry -->
@@ -434,7 +422,7 @@
                                 </div>
                                 <div>
                                     <p class="font-semibold text-sm group-hover:text-accentCoral transition-colors">Threads</p>
-                                    <p class="text-xs text-stone-400"> 짧은 문장과 생각 조각들</p>
+                                    <p class="text-xs text-stone-400">짧은 문장과 생각 조각들</p>
                                 </div>
                             </div>
                             <i class="fa-solid fa-chevron-right text-xs text-stone-500 group-hover:translate-x-1 transition-transform"></i>
@@ -479,7 +467,7 @@
 
     <!-- Lecture Request Modal Dialog -->
     <div id="lecture-modal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-stone-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-stone-200">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-stone-200 my-8">
             <!-- Close Button -->
             <button onclick="closeModal()" class="absolute top-5 right-5 text-stone-400 hover:text-stone-700 p-2">
                 <i class="fa-solid fa-xmark text-xl"></i>
@@ -586,7 +574,6 @@
         // Lecture Inquiry Submission Handler
         function handleLectureSubmit(event) {
             event.preventDefault();
-            // User friendly notification instead of alert()
             const btn = event.target.querySelector('button[type="submit"]');
             const originalText = btn.innerHTML;
             
