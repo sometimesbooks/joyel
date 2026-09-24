@@ -423,13 +423,11 @@
                     </p>
                     
                     <!-- Form -->
-                    <form onsubmit="handleSubscribe(event)" class="pt-2 flex flex-col sm:flex-row gap-3">
-                        <input type="email" id="subscriber-email" required placeholder="이메일 주소를 입력해 주세요" 
-                               class="bg-stone-800 border border-stone-700 text-white placeholder-stone-400 px-4 py-3.5 rounded-xl flex-1 focus:outline-none focus:border-accentCoral transition-colors text-sm">
-                        <button type="submit" class="bg-accentCoral hover:bg-accentCoralDark text-white font-medium px-6 py-3.5 rounded-xl transition-colors text-sm whitespace-nowrap shadow">
-                            뉴스레터 구독하기
-                        </button>
-                    </form>
+                   <div class="pt-2">
+    <a href="https://page.stibee.com/subscriptions/452238" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-accentCoral hover:bg-accentCoralDark text-white font-medium px-8 py-3.5 rounded-xl transition-colors text-sm shadow">
+        <i class="fa-regular fa-paper-plane mr-2"></i>뉴스레터 구독 신청하기
+         </a>
+        </div>
                     <p id="subscribe-message" class="text-xs text-emerald-400 hidden"><i class="fa-solid fa-check mr-1"></i> 구독 신청이 완료되었습니다! 격주 목요일에 만나요.</p>
                 </div>
 
